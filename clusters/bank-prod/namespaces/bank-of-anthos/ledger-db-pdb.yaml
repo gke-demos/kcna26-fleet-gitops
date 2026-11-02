@@ -1,0 +1,13 @@
+# The ledger must never be disrupted.
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  namespace: bank-of-anthos
+  name: ledger-db
+  labels:
+    application: bank-of-anthos
+spec:
+  maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: ledger-db

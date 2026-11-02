@@ -1,0 +1,16 @@
+# Added during the 2026-10 ledger incident so the on-call could exec into pods
+# from the app's identity. Meant to be temporary.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: bank-of-anthos-debug-access
+  labels:
+    application: bank-of-anthos
+subjects:
+  - kind: ServiceAccount
+    name: bank-of-anthos
+    namespace: bank-of-anthos
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
