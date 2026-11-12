@@ -1,9 +1,0 @@
-# kcna-2026-demos/us-central1-b/boutique-prod: no-pdb on Deployment/frontend (no-pdb.kcna-2026-demos-us-central1-b-boutique-prod.online-boutique.deployment-frontend)
-apiVersion: policy/v1
-kind: PodDisruptionBudget
-metadata:
-  name: frontend-pdb
-  namespace: online-boutique
-spec:
-  maxUnavailable: 1
-  selector: {"matchLabels": {"app": "frontend"}}
