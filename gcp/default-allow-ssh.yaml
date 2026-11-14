@@ -1,0 +1,16 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeFirewall
+metadata:
+  name: default-allow-ssh
+  namespace: gcp
+spec:
+  networkRef:
+    name: default
+  direction: INGRESS
+  priority: 65534
+  sourceRanges:
+    - 35.235.240.0/20
+  allowed:
+    - IPProtocol: tcp
+      ports:
+        - "22"
