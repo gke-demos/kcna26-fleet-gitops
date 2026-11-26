@@ -1,4 +1,4 @@
-# The ledger must never be disrupted.
+# Safe PodDisruptionBudget for ledger-db
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
@@ -7,7 +7,7 @@ metadata:
   labels:
     application: bank-of-anthos
 spec:
-  maxUnavailable: 0
+  maxUnavailable: 1
   selector:
     matchLabels:
       app: ledger-db
